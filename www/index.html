@@ -38,6 +38,7 @@
             showResults(results);
         })
     }
+    
 
     function showResults(results) {
       // テーブルのヘッダを生成
@@ -61,9 +62,14 @@
 <body>
   <h1>mBaaS search</h1>
   <div>
+    <label for="month">month:</label>
+    <input id="month" type="number" placeholder="month">
+  </div>
+  <div>
     <label for="name">name:</label>
     <input id="name" type="text" placeholder="monster name">
   </div>
+
   <div>
     <label for="level">level:</label>
     <input id="level" type="number" placeholder="monster level">

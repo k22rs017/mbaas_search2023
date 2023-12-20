@@ -15,12 +15,18 @@
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
     let UTdata = ncmb.DataStore("charender");
     let key1 = "month";
+    let key2 = "day";
+    let key3 = "schedule";
 
 
         function enterData() {
             let uTdata = new UTdata();
-            let value = parseInt($("#month").val());
-            uTdata.set(key1, value)
+            let value1 = parseInt($("#month").val());
+            uTdata.set(key1, value1)
+            let value2 = parseInt($("#day").val());
+            uTdata.set(key2, value2)
+            let value3 = $("#schedule").val();
+            uTdata.set(key3, value3)
                 .save()
                 .then(function(results) {
                     $("#display").removeClass();

@@ -105,6 +105,33 @@
                     $("#display").html("update fail:" + JSON.stringify(error));
                     })
     }
+
+    function searchday(){
+        let day = $("#day").val();
+        let UTdata = ncmb.DataStore("charender");
+        UTdata
+        .equalTo("key2,day")
+        .fetchAll()
+        .then(function(results){
+            let msg = "<table><tr><th>month</th><th>date</th><th>schedule</th></tr>";
+                    for (let i = 0; i < results.length; i++) {
+                    // 各データを収めた表の列を生成
+                    msg += "<tr>";
+                    msg += "<td>" + results[i].month + "</td>";
+                    msg += "<td class='num'>" + results[i].day + "</td>";
+                    msg += "<td class='num'>" + results[i].schedule + "</td>";
+                 }
+                    $("#display").removeClass();
+                    $("#display").addClass("text-light");
+                    $("#display").addClass("bg-primary");
+                    $("#display").html(msg);
+                })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("delete fail:" + JSON.stringify(error));
+                })
+    }
     
 
     function showResults(results) {
@@ -142,7 +169,7 @@
     <button class="btn" onclick="sortdate()">Sort date</button>
     <br>
     <button class="btn" onclick="deleteschedule()">delete</button>
-    <button class="btn" onclick="searchLevel()">Level</button>
+    <button class="btn" onclick="searchday()">day</button>
   </div>
   <div id="message">
         <div id="display" class="text-light bg-info">

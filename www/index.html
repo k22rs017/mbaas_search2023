@@ -89,12 +89,21 @@
                 })
     }
 
-    function searchLevel(){
-        let level = parseInt($("#level").val());
-        let TestDataClass = ncmb.DataStore(db);
-        TestDataClass.equalTo("level",level).fetchAll().then(function(results){
-            showResults(results);
-        })
+    function deleteschedule(){
+            UTdata.fetch()
+                .then(function(results) {
+                    return results.delete();
+                    })
+                .then(function(results) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-success");
+                    $("#display").html("delete success");
+                    })
+                .catch(function(error) {
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html("update fail:" + JSON.stringify(error));
+                    })
     }
     
 
@@ -132,7 +141,7 @@
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="sortdate()">Sort date</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
+    <button class="btn" onclick="deleteschedule()">delete</button>
     <button class="btn" onclick="searchLevel()">Level</button>
   </div>
   <div id="message">

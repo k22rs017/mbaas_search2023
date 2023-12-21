@@ -113,6 +113,8 @@
         .equalTo("day",day)
         .fetchAll()
         .then(function(results){
+            showResults(results);
+            /*
             let msg = "<table><tr><th>month</th><th>date</th><th>schedule</th></tr>";
                     for (let i = 0; i < results.length; i++) {
                     // 各データを収めた表の列を生成
@@ -120,7 +122,9 @@
                     msg += "<td>" + results[i].month + "</td>";
                     msg += "<td class='num'>" + results[i].day + "</td>";
                     msg += "<td class='num'>" + results[i].schedule + "</td>";
+                   
                  }
+                  */
                     $("#display").removeClass();
                     $("#display").addClass("text-light");
                     $("#display").addClass("bg-primary");
